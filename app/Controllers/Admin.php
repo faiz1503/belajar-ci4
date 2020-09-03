@@ -23,7 +23,8 @@ class Admin extends BaseController
 	{
 		$data = [
 			'title' => 'Testimonial',
-			'content' => 'admin/testimonial/index'
+			'content' => 'admin/testimonial/index',
+			'testimonial' => $this->Testimonial->getTestimonial()
 		];
 		return view('_layout/v_wrapper', $data);
 	}
@@ -48,7 +49,7 @@ class Admin extends BaseController
 			'description' => $this->request->getPost('description'),
 		];
 
-		$image->move(ROOTPATH . '/public/uploads');
+		$image->move(ROOTPATH . '/public/uploads', $name);
 
 		$simpan = $this->Testimonial->insertTestimonial($data);
 		return redirect()->to(base_url('admin/testimonial'));

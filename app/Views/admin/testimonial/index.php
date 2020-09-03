@@ -34,8 +34,20 @@
                     <th>No.</th>
                     <th>Username</th>
                     <th>Deskripsi</th>
-                    <th>gambar</th>
+                    <th>Gambar</th>
                   </tr>
+                  </thead>
+                  <tbody>
+                    <?php $nomor = 0; ?>
+                    <?php foreach($testimonial as $key => $row) { ?>
+                      <tr>
+                        <td><?php echo ++$nomor; ?></td>
+                        <td><?php echo $row['username']; ?></td>
+                        <td><?php echo $row['description']; ?></td>
+                        <td><img class='rounded-circle' src=" <?php echo base_url('uploads/' . $row['image']) ?> " width="100" height="100"></td>
+                      </tr>
+                    <?php } ?>
+                  </tbody>
                   </thead>
                 </table>
               </div>
